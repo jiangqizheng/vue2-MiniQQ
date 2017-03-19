@@ -1,0 +1,47 @@
+{
+  "self": {
+    "name": "正义使者",
+    "sex": "man",
+    "age": "20",
+    "qq": "879567101",
+    "address": "浙江-杭州",
+    "signature": "这是一个初学者的vue小demo",
+    "interest": "动漫",
+    "avatar": ""
+  },
+  "friend": {
+    "北宅": {
+      "name": "正义使者",
+      "sex": "man",
+      "age": "20",
+      "qq": "879567101",
+      "address": "浙江-杭州",
+      "signature": "这是一个初学者的vue小demo",
+      "interest": "动漫",
+      "avatar": ""
+    },
+    "理解": {
+      "name": "正义使者",
+      "sex": "man",
+      "age": "20",
+      "qq": "879567101",
+      "address": "浙江-杭州",
+      "signature": "这是一个初学者的vue小demo",
+      "interest": "动漫",
+      "avatar": ""
+    },
+    "爱丽": {
+      "name": "正义使者",
+      "sex": "man",
+      "age": "20",
+      "qq": "879567101",
+      "address": "浙江-杭州",
+      "signature": "这是一个初学者的vue小demo",
+      "interest": "动漫",
+      "avatar": ""
+    }
+  },
+  "message": {
+    "msg":"msg"
+  }
+}
