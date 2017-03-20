@@ -1,28 +1,61 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+
+  <div class="container-top">
+    <top-nav></top-nav>
+  </div>
+  <div class="container-content">
+    <div class="patch"></div>
+  <router-view></router-view>
+  </div>
+  <div class="container-bottom">
+     <bottom-tab class="tab"></bottom-tab>
+  </div>
+
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import bottomTab from './components/bottomtab/bottom-tab'
+import topNav from './components/topnav/top-nav'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    bottomTab,
+    topNav
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="stylus">
+@import './common/stylus/mixin.styl'
+
+#app
+  position:relative
+  min-height: 100vh
+  width: 100%
+  .container-top
+    position: fixed
+    z-index:999
+    top: 0
+    left: 0
+    width: 100%
+    height: 10%
+  .container-bottom
+    position: fixed
+    z-index:999
+    bottom: 0
+    left: 0
+    width: 100%
+    height: 10%
+  .container-content
+    width:100%
+    .patch
+      position: relative
+      top: 0
+      left: 0
+      width: 100%
+      height: 10vh
+  
 </style>
