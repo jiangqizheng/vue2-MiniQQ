@@ -1,112 +1,86 @@
 <template>
+  <mu-list >
 
-  <mu-list>
-    <mu-list-item title="这个周末一起吃饭么?">
-      <mu-avatar :src="avatar1" slot="leftAvatar"/>
+    <!--标题-->
+    <mu-list-item title="Myron Liu Mr" :describeLine="1" :disableRipple="true" >
+      <!--头像-->
+      <mu-avatar :src="avatar1"
+                 slot="leftAvatar" />
+      <!--预览信息-->
       <span slot="describe">
-        <span style="color: rgba(0, 0, 0, .87)">Myron Liu -</span> 周末要来你这里出差，要不要一起吃个饭呀，实在编不下去了,哈哈哈哈哈哈
+          <span style="color: rgba(0, 0, 0, .5)">Will you take a seat at the head of the table? It's an in</span>  
       </span>
-      <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
-        <mu-menu-item title="回复" />
-        <mu-menu-item title="标记" />
-        <mu-menu-item title="删除" />
-      </mu-icon-menu>
+      <!--时间与待处理-->
+      <div class="item-right"
+           slot="right">
+        <span class="time">16:02</span>
+          <mu-badge content="8" />
+      </div>
     </mu-list-item>
+    <!--分割线-->
     <mu-divider inset/>
-    <mu-list-item title="Alex Qin">
-      <mu-avatar :src="avatar2" slot="leftAvatar"/>
+     <!--标题-->
+    <mu-list-item title="Myron Liu" :describeLine="1" :disableRipple="true" >
+      <!--头像-->
+      <mu-avatar :src="avatar2"
+                 slot="leftAvatar" />
+      <!--预览信息-->
       <span slot="describe">
-        <span style="color: rgba(0, 0, 0, .87)">看电影啊</span> <br/>
-        我们去看电影，最近有部烂片上映，又有吐槽的了
+          <span style="color: rgba(0, 0, 0, .5)"> -</span>Mr. liu, would you care for another helping?
       </span>
-      <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
-        <mu-menu-item title="回复" />
-        <mu-menu-item title="标记" />
-        <mu-menu-item title="删除" />
-      </mu-icon-menu>
+      <!--时间与待处理-->
+      <div class="item-right"
+           slot="right">
+        <span class="time">20:34</span>
+          <mu-badge content="16" />
+      </div>
     </mu-list-item>
+    <!--分割线-->
     <mu-divider inset/>
-    <mu-list-item title="LOL">
-      <mu-avatar :src="avatar3" slot="leftAvatar"/>
+     <!--标题-->
+    <mu-list-item title="Myron Liu" :describeLine="1" :disableRipple="true" >
+      <!--头像-->
+      <mu-avatar :src="avatar3"
+                 slot="leftAvatar" />
+      <!--预览信息-->
       <span slot="describe">
-        <span style="color: rgba(0, 0, 0, .87)">去打游戏啊</span><br/>
-        周末一起 LOL
+          <span style="color: rgba(0, 0, 0, .5)">Cantonese food is a bit light; Shanghai food is rather oily; and Hunan dishes</span>
       </span>
-      <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
-        <mu-menu-item title="回复" />
-        <mu-menu-item title="标记" />
-        <mu-menu-item title="删除" />
-      </mu-icon-menu>
+      <!--时间与待处理-->
+      <div class="item-right"
+           slot="right">
+        <span class="time">20:34</span>
+          <mu-badge content="5" />
+      </div>
     </mu-list-item>
+    <!--分割线-->
     <mu-divider inset/>
-    <mu-list-item title="Myron Liu">
-      <mu-avatar :src="avatar4" slot="leftAvatar"/>
+     <!--标题-->
+    <mu-list-item title="Myron Liu" :describeLine="1" :disableRipple="true" >
+      <!--头像-->
+      <mu-avatar :src="avatar4"
+                 slot="leftAvatar" />
+      <!--预览信息-->
       <span slot="describe">
-        <span style="color: rgba(0, 0, 0, .87)">哇去</span><br/> 实在编不下去，这就是个demo
+          <span style="color: rgba(0, 0, 0, .5)">Thank you. This is my first time to come to a Chinese </span>
       </span>
-      <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
-        <mu-menu-item title="回复" />
-        <mu-menu-item title="标记" />
-        <mu-menu-item title="删除" />
-      </mu-icon-menu>
+      <!--时间与待处理-->
+      <div class="item-right"
+           slot="right">
+        <span class="time">20:34</span>
+          <mu-badge content="12" />
+      </div>
     </mu-list-item>
-        <mu-list-item title="这个周末一起吃饭么?">
-      <mu-avatar :src="avatar1" slot="leftAvatar"/>
-      <span slot="describe">
-        <span style="color: rgba(0, 0, 0, .87)">Myron Liu -</span> 周末要来你这里出差，要不要一起吃个饭呀，实在编不下去了,哈哈哈哈哈哈
-      </span>
-      <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
-        <mu-menu-item title="回复" />
-        <mu-menu-item title="标记" />
-        <mu-menu-item title="删除" />
-      </mu-icon-menu>
-    </mu-list-item>
+    <!--分割线-->
     <mu-divider inset/>
-    <mu-list-item title="Alex Qin">
-      <mu-avatar :src="avatar2" slot="leftAvatar"/>
-      <span slot="describe">
-        <span style="color: rgba(0, 0, 0, .87)">看电影啊</span> <br/>
-        我们去看电影，最近有部烂片上映，又有吐槽的了
-      </span>
-      <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
-        <mu-menu-item title="回复" />
-        <mu-menu-item title="标记" />
-        <mu-menu-item title="删除" />
-      </mu-icon-menu>
-    </mu-list-item>
-    <mu-divider inset/>
-    <mu-list-item title="LOL">
-      <mu-avatar :src="avatar3" slot="leftAvatar"/>
-      <span slot="describe">
-        <span style="color: rgba(0, 0, 0, .87)">去打游戏啊</span><br/>
-        周末一起 LOL
-      </span>
-      <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
-        <mu-menu-item title="回复" />
-        <mu-menu-item title="标记" />
-        <mu-menu-item title="删除" />
-      </mu-icon-menu>
-    </mu-list-item>
-    <mu-divider inset/>
-    <mu-list-item title="Myron Liu">
-      <mu-avatar :src="avatar4" slot="leftAvatar"/>
-      <span slot="describe">
-        <span style="color: rgba(0, 0, 0, .87)">哇去</span><br/> 实在编不下去，这就是个demo
-      </span>
-      <mu-icon-menu slot="right" icon="more_vert" tooltip="操作">
-        <mu-menu-item title="回复" />
-        <mu-menu-item title="标记" />
-        <mu-menu-item title="删除" />
-      </mu-icon-menu>
-    </mu-list-item>
-    
+
+
   </mu-list>
-
 </template>
 <script>
 
 export default {
-  data () {
+  data() {
     return {
       avatar1: '/static/images/avatar1.jpg',
       avatar2: '/static/images/avatar2.jpg',
@@ -116,8 +90,24 @@ export default {
   }
 }
 </script>
-<style lang = "stylus">
+<style lang="stylus">
 .mu-list
-  background:#f4f4f6
-
+  background: #f4f4f6
+  .mu-item-wrapper
+    background: #fff
+  .mu-item-content
+    padding-right:10px
+  .item-right
+    position:relative
+    .time
+      display: inline-block
+      position: absolute
+      top: -10px
+      left: -16px
+    .mu-badge
+      display: inline-block
+      position: absolute
+      top: 0
+      left: -10px
+      border-radius: 5px
 </style>

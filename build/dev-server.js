@@ -30,13 +30,13 @@ let message=appData.message
 
 let apiRoutes=express.Router()
 
-apiRoutes.get('/self',(req,res)=>{
+apiRoutes.get('/discover',(req,res)=>{
   res.json({
     errno:0,
     data:self,
   })
 })
-apiRoutes.get('/friend',(req,res)=>{
+apiRoutes.get('/friends',(req,res)=>{
   res.json({
     erron:0,
     data:friend,

@@ -4,13 +4,13 @@ import Router from 'vue-router'
 Vue.use(Router)
 // 导入组件
 import message from '../components/message/message.vue'
-import friend from '../components/friend/friend.vue'
-import self from '../components/self/self.vue'
+import friends from '../components/friends/friends.vue'
+import discover from '../components/discover/discover.vue'
 
 let routes = [
   {path: '/message', name: 'message', component: message},
-  {path: '/friend', name: 'friend', component: friend},
-  {path: '/self', name: 'self', component: self}
+  {path: '/friends', name: 'friends', component: friends},
+  {path: '/discover', name: 'discover', component: discover}
 ]
 
 export default new Router({

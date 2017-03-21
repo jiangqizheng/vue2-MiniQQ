@@ -6,13 +6,16 @@
 
         <mu-bottom-nav-item value="message"
                             title="Message"
-                            icon="chat" />
+                            icon="chat_bubble_outline" />
+     
         <mu-bottom-nav-item value="friends"
                             title="Friends"
                             icon="people" />
+          
         <mu-bottom-nav-item value="discover"
                             title="Discover"
                             icon="explore" />
+          
 
       </mu-bottom-nav>
 </template>
@@ -27,14 +30,13 @@ export default {
   methods: {
     handleChange (val) {
       this.bottomNav = val
+      this.$router.push(val)
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-
-
 .bottom-tab
   position: absolute
   top: 0
