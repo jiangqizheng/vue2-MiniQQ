@@ -1,5 +1,5 @@
 <template>
-  <mu-list >
+  <mu-list @itemClick="fn">
 
     <!--标题-->
     <mu-list-item title="Myron Liu Mr" :describeLine="1" :disableRipple="true" >
@@ -35,43 +35,6 @@
           <mu-badge content="16" />
       </div>
     </mu-list-item>
-    <!--分割线-->
-    <mu-divider inset/>
-     <!--标题-->
-    <mu-list-item title="Myron Liu" :describeLine="1" :disableRipple="true" >
-      <!--头像-->
-      <mu-avatar :src="avatar3"
-                 slot="leftAvatar" />
-      <!--预览信息-->
-      <span slot="describe">
-          <span style="color: rgba(0, 0, 0, .5)">Cantonese food is a bit light; Shanghai food is rather oily; and Hunan dishes</span>
-      </span>
-      <!--时间与待处理-->
-      <div class="item-right"
-           slot="right">
-        <span class="time">20:34</span>
-          <mu-badge content="5" />
-      </div>
-    </mu-list-item>
-    <!--分割线-->
-    <mu-divider inset/>
-     <!--标题-->
-    <mu-list-item title="Myron Liu" :describeLine="1" :disableRipple="true" >
-      <!--头像-->
-      <mu-avatar :src="avatar4"
-                 slot="leftAvatar" />
-      <!--预览信息-->
-      <span slot="describe">
-          <span style="color: rgba(0, 0, 0, .5)">Thank you. This is my first time to come to a Chinese </span>
-      </span>
-      <!--时间与待处理-->
-      <div class="item-right"
-           slot="right">
-        <span class="time">20:34</span>
-          <mu-badge content="12" />
-      </div>
-    </mu-list-item>
-    <!--分割线-->
     <mu-divider inset/>
 
 
@@ -86,6 +49,12 @@ export default {
       avatar2: '/static/images/avatar2.jpg',
       avatar3: '/static/images/avatar3.jpg',
       avatar4: '/static/images/avatar4.jpg'
+    }
+  },
+  methods: {
+    fn(e) {
+      console.log(e.title)
+      this.$store.commit('openDialog')
     }
   }
 }

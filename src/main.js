@@ -4,7 +4,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import App from './App'
 import router from './router/index'
-import vuex from './vuex/store'
+import store from './vuex/store'
 
 import './common/stylus/base.styl'
 
@@ -26,6 +26,6 @@ new Vue({
   el: '#app',
   template: '<App/>',
   router,
-  vuex,
+  store,
   components: { App }
 })

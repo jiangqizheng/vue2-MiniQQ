@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--头部导航-->
-    <div class="container-top">
+    <div class="container-top" >
       <!--弹出层控制按钮-边框弹出-->
       <div class="drawer"
            @click="toggle(true)"></div>
@@ -17,8 +17,7 @@
     <div class="container-bottom">
       <bottom-tab class="tab"></bottom-tab>
     </div>
-  
-    <!--主页弹出层-->
+    <!--主页左侧弹出层-->
     <mu-drawer :open="open"
                :docked="docked"
                @close="toggle()">
@@ -31,26 +30,38 @@
       </mu-list>
     </mu-drawer>
   
+    
+    <my-dialog class="my-dialog" v-show="dialog"></my-dialog>
+
   </div>
 </template>
 
 <script>
 import bottomTab from './components/bottomtab/bottom-tab'
 import topNav from './components/topnav/top-nav'
+import myDialog from './components/dialog/dialog'
 
 export default {
   name: 'app',
   components: {
     bottomTab,
-    topNav
+    topNav,
+    myDialog
   },
   data() {
     return {
+      // 前两项是左侧弹框
       open: false,
       docked: true
     }
   },
+  computed: {
+    dialog() {
+      return this.$store.state.dialog
+    }
+  },
   methods: {
+    // 左弹框
     toggle(flag) {
       this.open = !this.open
       this.docked = !flag
@@ -67,6 +78,8 @@ export default {
   min-height: 100vh
   width: 100%
   background:#f4f4f6
+  .my-dialog
+    position: fixed
   .container-top
     position: fixed
     z-index: 101
@@ -121,7 +134,7 @@ export default {
       color: #ffd600
     .ii-2
       font-size: 2.5em
-      color: #e64a19
+      color: #ec407a
     .ii-3
       font-size: 2.5em
       color: #2962ff

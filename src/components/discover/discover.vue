@@ -28,7 +28,6 @@
     </div>
 
     <div class="gap-1"></div>
-
      <mu-list>
     <mu-list-item title="Live">
       <mu-icon slot="left" value="videocam" color="#64dd17"/>
