@@ -7,8 +7,17 @@ import actions from './actions'
 Vue.use(Vuex)
 
 let state = {
-  // 对话框是否展开
-  dialog: false
+  // 对话框
+  dialog: false,
+  // 侧边栏
+  sidebar: {
+    open: false,
+    docked: true
+  },
+  // 个人主页
+  personindex: false,
+  // 搜索框
+  search: false
 }
 
 export default new Vuex.Store({

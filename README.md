@@ -1,8 +1,25 @@
-# vue-miniqq
+# vue-miniQQ
 
-> vue-demo
+>  本项目是基于vue2制作的仿移动端QQ，并未完成，后续完成后公开。此阶段上传只为防止错删，大雾Q.o
+
+### 项目主要技术架构
+***
+*  vue-cli
+*  vue
+*  vue-router
+*  vuex
+*  axios
+*  stylus
+*  webpack
+
+###目前进度
+***
+* 已完成基础移动页面制作，及基础的交互功能
+
 
 ## Build Setup
+
+#### 一个正在制作中的基于vue2全家桶(vue2+vue-router+vuex)的仿QQ项目，移动端webapp，持续更新
 
 ``` bash
 # install dependencies

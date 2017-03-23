@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <!--头部导航-->
-    <div class="container-top" >
-      <!--弹出层控制按钮-边框弹出-->
+    <div class="container-top">
+      <!--弹出层控制按钮-左边框弹出-->
       <div class="drawer"
-           @click="toggle(true)"></div>
+           @click="showSidebar(true)"></div>
       <top-nav></top-nav>
     </div>
     <!--内容-->
@@ -17,22 +17,18 @@
     <div class="container-bottom">
       <bottom-tab class="tab"></bottom-tab>
     </div>
-    <!--主页左侧弹出层-->
-    <mu-drawer :open="open"
-               :docked="docked"
-               @close="toggle()">
-      <mu-list @itemClick="docked ? '' : toggle()">
-        <mu-list-item title="Menu Item 1" />
-        <mu-list-item title="Menu Item 2" />
-        <mu-list-item title="Menu Item 3" />
-        <mu-list-item @click.native="open = false"
-                      title="Close" />
-      </mu-list>
-    </mu-drawer>
   
-    
-    <my-dialog class="my-dialog" v-show="dialog"></my-dialog>
-
+    <!--主页左侧弹出层-->
+    <my-sidebar></my-sidebar>
+    <!--对话界面-->
+    <my-dialog class="my-dialog"
+               v-if="dialog"></my-dialog>
+    <!--个人主页-->
+    <my-personindex class="my-personindex"
+                    v-if="personindex"></my-personindex>
+    <!--搜索-->
+    <my-search v-if="search"></my-search>
+  
   </div>
 </template>
 
@@ -40,31 +36,34 @@
 import bottomTab from './components/bottomtab/bottom-tab'
 import topNav from './components/topnav/top-nav'
 import myDialog from './components/dialog/dialog'
+import mySidebar from './components/sidebar/sidebar'
+import myPersonindex from './components/personindex/personindex'
+import mySearch from './components/search/search'
 
 export default {
   name: 'app',
   components: {
     bottomTab,
     topNav,
-    myDialog
-  },
-  data() {
-    return {
-      // 前两项是左侧弹框
-      open: false,
-      docked: true
-    }
+    myDialog,
+    mySidebar,
+    myPersonindex,
+    mySearch
   },
   computed: {
     dialog() {
       return this.$store.state.dialog
+    },
+    personindex() {
+      return this.$store.state.personindex
+    },
+    search() {
+      return this.$store.state.search
     }
   },
   methods: {
-    // 左弹框
-    toggle(flag) {
-      this.open = !this.open
-      this.docked = !flag
+    showSidebar(flag) {
+      this.$store.commit('showSidebar', { flag })
     }
   }
 }
@@ -80,6 +79,10 @@ export default {
   background:#f4f4f6
   .my-dialog
     position: fixed
+  .my-personindex
+    .bottom
+      .material-icons
+        color: #2e2c6b
   .container-top
     position: fixed
     z-index: 101

@@ -57,7 +57,7 @@
       <span style="color: rgba(0, 0, 0, .8)">My Friends</span>
     </div>
   
-    <mu-list>
+    <mu-list @itemClick="showPersonindex">
       <mu-list-item title="Mike Li" :disableRipple="true">
         <mu-avatar :src="avatar1"
                    slot="leftAvatar" />
@@ -99,6 +99,11 @@ export default {
       avatar2: '/static/images/avatar2.jpg',
       avatar3: '/static/images/avatar3.jpg',
       avatar4: '/static/images/avatar4.jpg'
+    }
+  },
+  methods: {
+    showPersonindex() {
+      this.$store.commit('showPersonindex')
     }
   }
 }

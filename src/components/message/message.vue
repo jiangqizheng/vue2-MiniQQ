@@ -54,7 +54,7 @@ export default {
   methods: {
     fn(e) {
       console.log(e.title)
-      this.$store.commit('openDialog')
+      this.$store.commit('showDialog')
     }
   }
 }
