@@ -3,7 +3,8 @@
     <mu-appbar :zDepth="0">
   
       <mu-icon-button icon="arrow_back"
-                      slot="left" @click="showSearch"/>
+                      slot="left"
+                      @click="showSearch" />
   
       <mu-text-field class="appbar-search-field"
                      slot="default"
@@ -14,19 +15,20 @@
   
     <mu-list>
       <mu-sub-header>在输入框中，输入名字或者QQ搜索好友</mu-sub-header>
-
+  
       <mu-list-item title="Mike Li">
         <mu-avatar :src="avatar1"
                    slot="leftAvatar" />
         <mu-icon value="chat_bubble"
                  slot="right" />
       </mu-list-item>
-
+  
     </mu-list>
   
   </div>
 </template>
 <script>
+// 还没写
 export default {
   data() {
     return {

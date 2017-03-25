@@ -45,7 +45,7 @@
                    :size="40"
                    :iconSize="20" />
         <span slot="describe">
-            <span style="color: rgba(0, 0, 0, .5)">You are my destiny</span>
+                    <span style="color: rgba(0, 0, 0, .5)">You are my destiny</span>
         </span>
         <div class="item-right"
              slot="right">
@@ -57,52 +57,36 @@
       <span style="color: rgba(0, 0, 0, .8)">My Friends</span>
     </div>
   
-    <mu-list @itemClick="showPersonindex">
-      <mu-list-item title="Mike Li" :disableRipple="true">
-        <mu-avatar :src="avatar1"
-                   slot="leftAvatar" />
-        <mu-icon value="chat_bubble"
-                 slot="right" />
-      </mu-list-item>
-      <mu-divider inset/>
-      <mu-list-item title="Maco Mai" :disableRipple="true">
-        <mu-avatar :src="avatar2"
-                   slot="leftAvatar" />
-        <mu-icon value="chat_bubble"
-                 slot="right" />
-      </mu-list-item>
-      <mu-divider inset/>
-      <mu-list-item title="Alex Qin" :disableRipple="true">
-        <mu-avatar :src="avatar3"
-                   slot="leftAvatar" />
-        <mu-icon value="chat_bubble"
-                 slot="right" />
-      </mu-list-item>
-      <mu-divider inset/>
-      <mu-list-item title="Allen Qun" :disableRipple="true">
-        <mu-avatar :src="avatar4"
-                   slot="leftAvatar" />
-        <mu-icon value="chat_bubble"
-                 slot="right" />
-      </mu-list-item>
-      <mu-divider inset/>
-     
+    <mu-list>
+      <!--动态渲染-->
+      <div v-for="item of friends">
+        <mu-list-item :title="item.name"
+                      @click="showPersonindex(item._id)"
+                      :disableRipple="true">
+          <mu-avatar :src="item.avatar"
+                     slot="leftAvatar" />
+          <mu-icon value="chat_bubble"
+                   slot="right" />
+        </mu-list-item>
+        <mu-divider inset/>
+      </div>
+  
     </mu-list>
   
   </div>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      avatar1: '/static/images/avatar1.jpg',
-      avatar2: '/static/images/avatar2.jpg',
-      avatar3: '/static/images/avatar3.jpg',
-      avatar4: '/static/images/avatar4.jpg'
+  computed: {
+    // 获取全部好友
+    friends() {
+      return this.$store.state.data.friends
     }
   },
   methods: {
-    showPersonindex() {
+    // 点击展示个人主页
+    showPersonindex(e) {
+      this.$store.commit('getActiveId', { activeId: e })
       this.$store.commit('showPersonindex')
     }
   }

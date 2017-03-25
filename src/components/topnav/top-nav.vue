@@ -7,36 +7,35 @@
       <mu-avatar slot="left"
                  :src="avatar"
                  :size="30"
-                 @click="showSidebar(true)" />
+                 @click="showSidebar_x(true)" />
   
       <div slot="default"
            class="title">
-        <div class="title-item">Message</div>
+        <div class="title-item">{{headerTitle}}</div>
       </div>
   
       <!--<mu-icon-button icon="search"
-                          slot="right" />-->
+                              slot="right" />-->
       <mu-icon slot="right"
                value="search"
-               color="#2e2c6b" @click="showSearch"/>
+               color="#2e2c6b"
+               @click="showSearch" />
     </mu-appbar>
   
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
-  data() {
-    return {
-      avatar: '/static/images/avatar.jpg'
-    }
-  },
+  computed: mapState({
+    avatar: state => state.data.self.avatar,
+    headerTitle: 'headerTitle'
+  }),
   methods: {
-    showSidebar(flag) {
-      this.$store.commit('showSidebar', { flag })
-    },
-    showSearch() {
-      this.$store.commit('showSearch')
+    ...mapMutations(['showSidebar', 'showSearch']),
+    showSidebar_x(flag) {
+      this.showSidebar({ flag })
     }
   }
 }

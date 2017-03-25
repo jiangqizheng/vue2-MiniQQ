@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+// 加载需要用到的组件
 import bottomTab from './components/bottomtab/bottom-tab'
 import topNav from './components/topnav/top-nav'
 import myDialog from './components/dialog/dialog'
@@ -50,18 +52,10 @@ export default {
     myPersonindex,
     mySearch
   },
-  computed: {
-    dialog() {
-      return this.$store.state.dialog
-    },
-    personindex() {
-      return this.$store.state.personindex
-    },
-    search() {
-      return this.$store.state.search
-    }
-  },
+  // mapState是vuex的方法之一
+  computed: mapState(['dialog', 'personindex', 'search']),
   methods: {
+    // 点击左侧打开侧边栏
     showSidebar(flag) {
       this.$store.commit('showSidebar', { flag })
     }
@@ -70,15 +64,13 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './common/stylus/mixin.styl'
-
 #app
   position:relative
   min-height: 100vh
   width: 100%
   background:#f4f4f6
   .my-dialog
-    position: fixed
+    position: absolute
   .my-personindex
     .bottom
       .material-icons

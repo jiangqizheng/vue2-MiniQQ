@@ -1,13 +1,13 @@
 <template>
   <div class="index">
-    <div class="top">
+    <div class="top"
+         :style="{backgroundImage: `url(${userData.avatar})`}">
   
       <mu-appbar title="name"
                  :zDepth="0">
         <mu-icon-button icon="arrow_back"
                         slot="left"
-                        @click="showPersonindex"
-                         />
+                        @click="showPersonindex" />
         <div class="right-top"
              slot="right">
           <mu-icon-button icon="more_vert" />
@@ -15,9 +15,9 @@
       </mu-appbar>
   
       <div class="c">
-        <mu-avatar :src="avatar1"
+        <mu-avatar :src="userData.avatar"
                    :size="96" />
-        <span class="name">Name</span>
+        <span class="name">{{userData.name}}</span>
       </div>
       <mu-tabs :value="activeTab"
                @change="handleTabChange">
@@ -26,7 +26,6 @@
         <mu-tab value="tab2"
                 title="TAB TWO" />
         <mu-tab value="tab3"
-                
                 title="TAB ACTIVE" />
       </mu-tabs>
     </div>
@@ -34,47 +33,44 @@
       <div class="item">
         <div v-if="activeTab === 'tab1'">
           <mu-list-item title="QQnumber"
-                        describeText="879567101" disabled>
+                        describeText="879567101"
+                        disabled>
             <mu-icon value="voicemail"
                      color="#2e2c6b"
                      slot="left" />
           </mu-list-item>
         </div>
       </div>
-
-<div class="item">
+  
+      <div class="item">
         <div v-if="activeTab === 'tab1'">
           <mu-list-item title="Region"
-                        describeText="HangZhou" disabled>
+                        describeText="HangZhou"
+                        disabled>
             <mu-icon value="location_on"
                      color="#2e2c6b"
                      slot="left" />
           </mu-list-item>
         </div>
       </div>
-
+  
       <div class="item">
         <div v-if="activeTab === 'tab1'">
           <mu-list-item title="Birthday"
-                        describeText="20/4/96" disabled>
+                        describeText="20/4/96"
+                        disabled>
             <mu-icon value="cake"
                      color="#2e2c6b"
                      slot="left" />
           </mu-list-item>
         </div>
       </div>
-
+  
       <div v-if="activeTab === 'tab2'">
-        <h2>Tab Two</h2>
-        <p>
-          这是第二个 tab
-        </p>
+        <h1>第二个tab</h1>
       </div>
       <div v-if="activeTab === 'tab3'">
-        <h2>Tab Three</h2>
-        <p>
-          这是第三个 tab
-        </p>
+        <h1>第三个tab</h1>
       </div>
     </div>
   
@@ -84,7 +80,8 @@
       <mu-tab value="tab2"
               icon="phone" />
       <mu-tab value="tab3"
-              icon="chat_bubble" @click="showDialog"/>
+              icon="chat_bubble"
+              @click="showDialog" />
     </mu-tabs>
   
   </div>
@@ -93,8 +90,17 @@
 export default {
   data() {
     return {
-      avatar1: '/static/images/avatar1.jpg',
       activeTab: 'tab1'
+    }
+  },
+  computed: {
+    userData() {
+      // 判断是否有当前活跃的friend，没有的话就获取自己的数据，展示个人页面，有的话就展示当前活跃朋友的页面
+      if (this.$store.state.activeId === 0) {
+        return this.$store.state.data.self
+      } else {
+        return this.$store.getters.friend
+      }
     }
   },
   methods: {
@@ -102,11 +108,14 @@ export default {
       this.activeTab = val
     },
     showPersonindex() {
+      this.$store.commit('getActiveId', { activeId: 0 })
       this.$store.commit('showPersonindex')
     },
     showDialog() {
-      this.$store.commit('showDialog')
-      this.$store.commit('showPersonindex')
+      if (this.$store.state.activeId !== 0) {
+        this.$store.commit('showDialog')
+        this.$store.commit('showPersonindex')
+      }
     }
   }
 }
@@ -123,7 +132,7 @@ export default {
   .top
     position: relative
     height: 38vh
-    background-image: url('./avatar1.jpg')
+    // background-image: url('./avatar.jpg')
     background-size: cover
     .c
       position: absolute

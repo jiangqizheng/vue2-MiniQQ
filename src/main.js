@@ -14,7 +14,6 @@ import 'muse-ui/dist/muse-ui.css'
 Vue.use(MuseUI)
 
 // 在vue原型中添加$http方法等于axios
-// 注：未测试能否use
 Vue.prototype.$http = axios
 // 设置默认打开的页面
 router.replace('message')
@@ -25,7 +24,13 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   template: '<App/>',
+  // 注入路由
   router,
+  // 注入vuex的store
   store,
-  components: { App }
+  components: { App },
+  // 组件创建前，进行异步数据数据请求
+  beforeCreate() {
+    this.$store.dispatch('getAllData', this)
+  }
 })

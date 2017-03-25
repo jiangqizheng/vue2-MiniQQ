@@ -22,30 +22,42 @@ var proxyTable = config.dev.proxyTable
 
 var app = express()
 
+// 进行http请求用到的模块
+const superagent = require('superagent')
+
 // mock假数据
-let appData=require('../data.json')
-let self=appData.self
-let friend=appData.friend
-let message=appData.message
+let appData = require('../mockdata.json')
+let self = appData.self
+let friend = appData.friend
 
-let apiRoutes=express.Router()
+let apiRoutes = express.Router()
 
-apiRoutes.get('/discover',(req,res)=>{
+apiRoutes.get('/self', (req, res) => {
   res.json({
-    errno:0,
     data:self,
   })
 })
-apiRoutes.get('/friends',(req,res)=>{
+apiRoutes.get('/friends', (req, res) => {
   res.json({
-    erron:0,
     data:friend,
   })
 })
-apiRoutes.get('/message',(req,res)=>{
-  res.json({
-    erron:0,
-    data:message,
+
+// 聊天机器人api接入
+apiRoutes.get('/robotapi', (req, res) => {
+  let response=res
+  let info = req.query.message
+  let userid = req.query.id
+  let key = '069e90c4262243bf964ad95014371384'
+  superagent.post('http://www.tuling123.com/openapi/api')
+  .send({info, userid, key})
+  .end((err,res) => {
+    if(err){
+      console.log(err)
+    }
+    response.json({
+      data: res.text
+    })
   })
 })
 
