@@ -23,6 +23,8 @@ let state = {
   headerTitle: 'Message',
   // 初始化基础数据
   data: { self: {}, friends: [] },
+  // ajax请求数据是否结束
+  isAjax: false,
   // 当前被选中或者在聊天中的friend的_id
   activeId: 0,
   // 聊天队列，这里为每个朋友添加了一个聊天队列，偷懒写法，如果有需要可以改成动态添加
@@ -31,13 +33,26 @@ let state = {
   messageList: [
     {
       _id: 1,
-      list: [{_id: 1, message: '你可以和我聊天', time: '4:28'}]
+      list: [{ _id: 1, message: '你可以和我聊天', time: '4:28' }]
     }, {
       _id: 2,
-      list: [{_id: 2, message: '我会讲笑话哦', time: '9:50'}]
+      list: [{ _id: 2, message: '我会讲笑话哦', time: '9:50' }]
     }, {
       _id: 3,
-      list: [{_id: 3, message: '请问你要来点兔子吗', time: '3:12'}]
+      list: [{ _id: 3, message: '请问你要来点兔子吗', time: '3:12' }]
+    }
+  ],
+  // 消息队列副本，由于没有数据库，所以采用这样折中的方法
+  messageListFB: [
+    {
+      _id: 1,
+      list: [{ _id: 1, message: '你可以和我聊天', time: '4:28' }]
+    }, {
+      _id: 2,
+      list: [{ _id: 2, message: '我会讲笑话哦', time: '9:50' }]
+    }, {
+      _id: 3,
+      list: [{ _id: 3, message: '请问你要来点兔子吗', time: '3:12' }]
     }
   ]
 }

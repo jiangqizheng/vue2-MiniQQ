@@ -3,6 +3,16 @@
 const mutations = {
   // 对话
   showDialog: (state) => {
+    // 判断当前动作是否是在打开对话，如果是在打开对话，那么进行判断当前当前进行对话的好友是否存在消息队列
+    // 如果当前活跃的好友不存在消息队列（被删除的）那么就恢复此好友的消息队列，如果存在，那么无动作
+    if (!state.dialog) {
+      // 空数组用来判断也是true，所以后面加个[0]
+      let message = state.messageList.filter(x => x._id === state.activeId)[0]
+      if (!message) {
+        let oldMessage = state.messageListFB.filter(x => x._id === state.activeId)[0]
+        state.messageList.splice(oldMessage._id - 1, 0, oldMessage)
+      }
+    }
     state.dialog = !state.dialog
   },
   // 侧边栏
@@ -18,9 +28,12 @@ const mutations = {
   showSearch: (state) => {
     state.search = !state.search
   },
+  // ajax获取到用户数据
   getData: (state, data) => {
     // 将ajax获取到的值赋予state
     state.data = data
+    // ajax状态更改为结束
+    state.isAjax = true
   },
   // 标题
   changTitle: (state, { title }) => {
@@ -44,9 +57,14 @@ const mutations = {
       state.messageList[index].list.push({ ...obj, time })
     }
   },
-  // 零时删除消息队列方法，待修改
-  zeroRemove(state, { index }) {
-    state.data.friends.splice(index, 1)
+  // 删除消息
+  removeMessage(state, { _id }) {
+    state.messageList.forEach((item, index, arr) => {
+      // 判断信息列表中id与正在删除的信息id是否相同，如果相同，就删除信息
+      if (item._id === _id) {
+        arr.splice(index, 1)
+      }
+    })
   }
 }
 

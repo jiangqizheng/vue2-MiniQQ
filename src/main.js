@@ -16,7 +16,7 @@ Vue.use(VueLazyload, {
   listenEvents: [ 'scroll' ]
 })
 
-// 基础css样式
+// 引入基础css样式
 import './common/stylus/base.styl'
 
 // 加载ui

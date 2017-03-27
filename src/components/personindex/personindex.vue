@@ -1,14 +1,13 @@
 <template>
   <div class="index">
     <div class="top"
-         :style="{backgroundImage: `url(${userData.avatar})`}"
-         >
+         :style="{backgroundImage: `url(${userData.avatar})`}">
   
       <mu-appbar title="name"
                  :zDepth="0">
         <mu-icon-button icon="arrow_back"
                         slot="left"
-                        @click="showPersonindex" />
+                        @click="showPersonindex_x" />
         <div class="right-top"
              slot="right">
           <mu-icon-button icon="more_vert" />
@@ -82,12 +81,13 @@
               icon="phone" />
       <mu-tab value="tab3"
               icon="chat_bubble"
-              @click="showDialog" />
+              @click="showDialog_x" />
     </mu-tabs>
   
   </div>
 </template>
 <script>
+import { mapState, mapGetters, mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -95,27 +95,31 @@ export default {
     }
   },
   computed: {
+    ...mapState(['activeId', 'data']),
+    ...mapGetters(['friend']),
     userData() {
       // 判断是否有当前活跃的friend，没有的话就获取自己的数据，展示个人页面，有的话就展示当前活跃朋友的页面
-      if (this.$store.state.activeId === 0) {
-        return this.$store.state.data.self
+      if (this.activeId === 0) {
+        return this.data.self
       } else {
-        return this.$store.getters.friend
+        return this.friend
       }
     }
   },
   methods: {
+    ...mapMutations(['getActiveId', 'showPersonindex', 'showDialog']),
     handleTabChange(val) {
       this.activeTab = val
     },
-    showPersonindex() {
-      this.$store.commit('getActiveId', { activeId: 0 })
-      this.$store.commit('showPersonindex')
+    showPersonindex_x() {
+      this.getActiveId({ activeId: 0 })
+      this.showPersonindex()
     },
-    showDialog() {
-      if (this.$store.state.activeId !== 0) {
-        this.$store.commit('showDialog')
-        this.$store.commit('showPersonindex')
+    showDialog_x() {
+      // 判定打开的是不是自己的主页，如果是则无法点击对话
+      if (this.activeId !== 0) {
+        this.showDialog()
+        this.showPersonindex()
       }
     }
   }
