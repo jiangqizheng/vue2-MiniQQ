@@ -19,7 +19,7 @@ const mutations = {
     state.search = !state.search
   },
   getData: (state, data) => {
-  // 将ajax获取到的值赋予state
+    // 将ajax获取到的值赋予state
     state.data = data
   },
   // 标题
@@ -32,15 +32,21 @@ const mutations = {
   },
   // 消息队列，聊天队列处理
   changeList: (state, obj) => {
+    let now = new Date()
+    let time = `${now.getHours()}:${now.getMinutes()}`
     // 这里是偷懒写法，主要懒，获取到当前打开的聊天队列
     let index = obj._id - 1
     // 判断信息是自己的还是ai的，然后插入聊天队列中
     if (obj.self) {
       obj._id = 0
-      state.messageList[index].list.push(obj)
+      state.messageList[index].list.push({ ...obj, time })
     } else {
-      state.messageList[index].list.push(obj)
+      state.messageList[index].list.push({ ...obj, time })
     }
+  },
+  // 零时删除消息队列方法，待修改
+  zeroRemove(state, { index }) {
+    state.data.friends.splice(index, 1)
   }
 }
 

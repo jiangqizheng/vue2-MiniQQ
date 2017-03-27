@@ -1,7 +1,8 @@
 <template>
   <div class="index">
     <div class="top"
-         :style="{backgroundImage: `url(${userData.avatar})`}">
+         :style="{backgroundImage: `url(${userData.avatar})`}"
+         >
   
       <mu-appbar title="name"
                  :zDepth="0">
@@ -32,8 +33,8 @@
     <div class="content">
       <div class="item">
         <div v-if="activeTab === 'tab1'">
-          <mu-list-item title="QQnumber"
-                        describeText="879567101"
+          <mu-list-item title="Phone"
+                        :describeText="userData.phone"
                         disabled>
             <mu-icon value="voicemail"
                      color="#2e2c6b"
@@ -45,7 +46,7 @@
       <div class="item">
         <div v-if="activeTab === 'tab1'">
           <mu-list-item title="Region"
-                        describeText="HangZhou"
+                        :describeText="userData.address"
                         disabled>
             <mu-icon value="location_on"
                      color="#2e2c6b"
@@ -57,7 +58,7 @@
       <div class="item">
         <div v-if="activeTab === 'tab1'">
           <mu-list-item title="Birthday"
-                        describeText="20/4/96"
+                        :describeText="userData.birthday"
                         disabled>
             <mu-icon value="cake"
                      color="#2e2c6b"
@@ -67,10 +68,10 @@
       </div>
   
       <div v-if="activeTab === 'tab2'">
-        <h1>第二个tab</h1>
+        <h1>制作中....</h1>
       </div>
       <div v-if="activeTab === 'tab3'">
-        <h1>第三个tab</h1>
+        <h1>未完待续....</h1>
       </div>
     </div>
   
@@ -121,6 +122,7 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
+@import '../../common/stylus/mixin.styl'
 .index
   position: absolute
   z-index: 102
@@ -128,7 +130,7 @@ export default {
   left: 0
   width: 100%
   height: 100vh
-  background: #f4f4f6
+  background: color-g
   .top
     position: relative
     height: 38vh
@@ -170,5 +172,5 @@ export default {
     position: absolute
     left: 0
     bottom: 0
-    background: #fff
+    background: color-w
 </style>

@@ -42,6 +42,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../../common/stylus/mixin.styl'
 
 .mu-appbar
     position: absolute
@@ -49,7 +50,7 @@ export default {
     left: 0
     width: 100%
     height: 100%
-    background:#fff
+    background: color-w
     .mu-avatar
       margin-left:12px
     .title
@@ -60,11 +61,11 @@ export default {
         height: 34px
         line-height: 30px
         text-align: center
-        border: 1px solid #2e2c6b
+        border: 1px solid color-b
         border-radius: 4px
         font-weight: 500
-        background:#2e2c6b
-        color:#fff
+        background: color-b
+        color: color-w
     
 </style>
 

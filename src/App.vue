@@ -64,17 +64,19 @@ export default {
 </script>
 
 <style lang="stylus">
+@import './common/stylus/mixin.styl'
+
 #app
   position:relative
   min-height: 100vh
   width: 100%
-  background:#f4f4f6
+  background:color-g
   .my-dialog
     position: absolute
   .my-personindex
     .bottom
       .material-icons
-        color: #2e2c6b
+        color: color-b
   .container-top
     position: fixed
     z-index: 101
@@ -98,10 +100,10 @@ export default {
     height: 10%
     .tab
       .mu-bottom-item-active .mu-bottom-item-icon
-        color:#2e2c6b
+        color:color-b
       .mu-bottom-item-active .mu-bottom-item-text
         font-weight: 700
-        color:#2e2c6b
+        color:color-b
   .container-content
     width:100%
     .patch
@@ -110,9 +112,8 @@ export default {
       left: 0
       width: 100%
       height: 10.2vh
-    // friend-tab、
     .t-1
-      color: #2e2c6b
+      color: color-b
     .mu-tab-text.has-icon
       margin-top: -4px
     .i-1

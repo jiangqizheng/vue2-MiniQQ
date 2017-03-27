@@ -69,8 +69,9 @@ export default {
 
 </script>
 <style lang="stylus" scoped>
+@import '../../common/stylus/mixin.styl'
 .mu-drawer
-  color: #2e2c6b
+  color: color-b
   .content
     position: relative
     height: 30vh

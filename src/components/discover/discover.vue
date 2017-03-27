@@ -29,6 +29,7 @@
   
     <div class="gap-1"></div>
     <mu-list>
+      <div class="item">
       <mu-list-item title="Live">
         <mu-icon slot="left"
                  value="videocam"
@@ -52,9 +53,11 @@
         <mu-icon value="keyboard_arrow_right"
                  slot="right" />
       </mu-list-item>
+      </div>
     </mu-list>
   
     <mu-list>
+      <div class="item">
       <mu-list-item title="Book">
         <mu-icon slot="left"
                  value="book"
@@ -78,8 +81,10 @@
         <mu-icon value="keyboard_arrow_right"
                  slot="right" />
       </mu-list-item>
+      </div>
     </mu-list>
     <mu-list>
+      <div class="item">
       <mu-list-item title="Mucket">
         <mu-icon slot="left"
                  value="shopping_cart"
@@ -87,6 +92,7 @@
         <mu-icon value="keyboard_arrow_right"
                  slot="right" />
       </mu-list-item>
+      </div>
     </mu-list>
   
   </div>
@@ -94,7 +100,10 @@
 <script>
 </script>
 <style lang="stylus"  scoped>
+@import '../../common/stylus/mixin.styl'
 .friend
+  .item
+    background: color-w
   .gap
     position:relative
     height: 2vh
@@ -103,8 +112,8 @@
   .tab
     height: 12vh
     overflow:hidden
-    background: #fff
+    background: colot-w
     .mu-tabs
-      background:#fff
-      color:#3e3c7b
+      background:color-w
+      color:color-b
 </style>
