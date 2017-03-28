@@ -47,14 +47,22 @@ const mutations = {
   changeList: (state, obj) => {
     let now = new Date()
     let time = `${now.getHours()}:${now.getMinutes()}`
-    // 这里是偷懒写法，主要懒，获取到当前打开的聊天队列
-    let index = obj._id - 1
     // 判断信息是自己的还是ai的，然后插入聊天队列中
     if (obj.self) {
-      obj._id = 0
-      state.messageList[index].list.push({ ...obj, time })
+      // 信息是自己发送的
+      state.messageList.forEach((item, index, arr) => {
+        if (item._id === obj._id) {
+          obj._id = 0
+          item.list.push({ ...obj, time })
+        }
+      })
     } else {
-      state.messageList[index].list.push({ ...obj, time })
+      // 信息是ai发送的
+      state.messageList.forEach((item, index, arr) => {
+        if (item._id === obj._id) {
+          item.list.push({ ...obj, time })
+        }
+      })
     }
   },
   // 删除消息
