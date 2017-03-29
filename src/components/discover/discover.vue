@@ -98,6 +98,9 @@
   </div>
 </template>
 <script>
+export default({
+  name: 'discover'
+})
 </script>
 <style lang="stylus"  scoped>
 @import '../../common/stylus/mixin.styl'

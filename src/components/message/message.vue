@@ -42,6 +42,7 @@ import { mapState, mapGetters, mapMutations } from 'vuex'
 // 后续会将滑动封装至子组件
 // import swipeDelete from './swipeDelete'
 export default {
+  name: 'message',
   data() {
     return {
       isSwipe: [false, false, false]

@@ -16,6 +16,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+  name: 'dialogue',
   props: ['userData'],
   computed: {
     ...mapGetters(['nowMessageList']),

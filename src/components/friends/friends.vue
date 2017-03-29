@@ -77,6 +77,7 @@
 </template>
 <script>
 export default {
+  name: 'friend',
   computed: {
     // 获取全部好友
     friends() {

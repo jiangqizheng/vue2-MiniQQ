@@ -3,7 +3,7 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -21,12 +21,18 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
+      'muse-components': 'muse-ui/src',
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
+      '@': resolve('src')
+      
     }
   },
   module: {
     rules: [
+      {
+        test: /muse-ui.src.*?js$/,
+        loader: 'babel-loader'
+      },
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',

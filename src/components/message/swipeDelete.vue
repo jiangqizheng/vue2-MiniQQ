@@ -5,6 +5,7 @@
 </template>
 <script>
 export default {
+  name: 'swipeDelete',
   methods: {
     clickitem() {
       this.$emit('clickitem')

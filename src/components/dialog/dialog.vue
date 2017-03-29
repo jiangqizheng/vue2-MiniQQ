@@ -34,10 +34,12 @@
         <mu-text-field hintText="输入文字"
                        v-model="value"
                        @focus="focus"
-                       @blur="blur" />
+                       @blur="blur"
+                       @keyup.enter.native="sendValue"
+                        />
   
         <mu-icon-button icon="send"
-                        @click="sendValue" />
+                        @click="sendValue"   />
       </div>
       <div class="bottom">
         <mu-icon-button icon="mic_none" />
@@ -57,6 +59,7 @@ import { mapState, mapMutations } from 'vuex'
 import myDialogue from './dialogue'
 
 export default {
+  name: 'dialog',
   components: {
     myDialogue
   },

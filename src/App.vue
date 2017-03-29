@@ -1,4 +1,5 @@
 <template>
+
   <div id="app">
     <!--头部导航-->
     <div class="container-top">
@@ -74,9 +75,8 @@ export default {
   .my-dialog
     position: absolute
   .my-personindex
-    .bottom
-      .material-icons
-        color: color-b
+    .material-icons
+      color: color-b
   .container-top
     position: fixed
     z-index: 101

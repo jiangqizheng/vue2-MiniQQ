@@ -33,6 +33,7 @@
 <script>
 import { mapState, mapMutations } from 'vuex'
 export default {
+  name: 'search',
   data() {
     return {
       value: '',
