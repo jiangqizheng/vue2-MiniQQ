@@ -49,7 +49,7 @@ gif图好像被压缩的太多了，感兴趣的可以clone后查看。
 
 ![侧边栏与个人主页](./static/images/gif/sidebar.gif)
 
-**搜素组件的动画效果**
+**滑动组件的动画效果**
 
 ![滑动删除](./static/images/gif/swipe.gif)
 
