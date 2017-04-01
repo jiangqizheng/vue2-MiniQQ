@@ -5,12 +5,10 @@
       <mu-icon-button icon="arrow_back"
                       slot="left"
                       @click="showDialog_x" />
-      <div class="right-top"
-           slot="right">
+      <div class="right-top" slot="right">
         <mu-icon-button icon="videocam" />
         <mu-icon-button icon="call" />
-        <mu-icon-button icon="person"
-                        @click="showPersonindex_x" />
+        <mu-icon-button icon="person" @click="showPersonindex_x" />
       </div>
     </mu-appbar>
   

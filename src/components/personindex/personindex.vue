@@ -128,6 +128,8 @@ export default {
 </script>
 <style lang="stylus" scoped>
 @import '../../common/stylus/mixin.styl'
+.icons
+  color:#f00
 .index
   position: absolute
   z-index: 102

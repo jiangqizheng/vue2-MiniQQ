@@ -5,15 +5,21 @@
   
     <mu-bottom-nav-item value="message"
                         title="Message"
-                        icon="chat_bubble_outline" />
+                        icon="chat_bubble_outline"
+                        :iconClass="[ isActive[0]&&'color-b' ]"
+                        :titleClass="[ isActive[0]&&'color-b' ]" />
   
     <mu-bottom-nav-item value="friends"
                         title="Friends"
-                        icon="people" />
+                        icon="people"
+                        :iconClass="[ isActive[1]&&'color-b' ]"
+                        :titleClass="[ isActive[1]&&'color-b' ]" />
   
     <mu-bottom-nav-item value="discover"
                         title="Discover"
-                        icon="explore" />
+                        icon="explore"
+                        :iconClass="[ isActive[2]&&'color-b' ]"
+                        :titleClass="[ isActive[2]&&'color-b' ]" />
   
   </mu-bottom-nav>
 </template>
@@ -24,6 +30,15 @@ export default {
   data() {
     return {
       bottomNav: 'message'
+    }
+  },
+  computed: {
+    // 关于样式设置完全可以用覆盖的形式，这里只是没事找事罢了
+    isActive() {
+      let arr = ['message', 'friends', 'discover']
+      let x = []
+      x[arr.indexOf(this.bottomNav)] = true
+      return x
     }
   },
   methods: {

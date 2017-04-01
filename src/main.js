@@ -6,7 +6,7 @@ import App from './App'
 import router from './router/index'
 import store from './vuex/store'
 import MuseUi from './muse-ui.config'
-
+// import './common/stylus/base.styl'
 Vue.use(MuseUi)
 
 // 懒加载模块,由于暂时没有几张图，主要为后续使用做准备，使用方法见https://github.com/hilongjw/vue-lazyload
